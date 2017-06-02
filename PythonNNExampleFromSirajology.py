@@ -4,7 +4,7 @@
 # # Annotations for the Sirajology Python NN Example
 #
 # This code comes from a demo NN program from the YouTube video https://youtu.be/h3l4qz76JhQ. The program creates an neural network that simulates the exclusive OR function with two inputs and one output.
-#
+# The programm is a simple 3-layer feedforward neural network to predict the next number in a sequence.
 
 import numpy as np  # Note: there is a typo on this line in the video
 
@@ -45,7 +45,6 @@ np.random.seed(1)
 
 # Now we intialize the weights to random values. syn0 are the weights between the input layer and the hidden layer.  It is a 3x4 matrix because there are two input weights plus a bias term (=3) and four nodes in the hidden layer (=4). syn1 are the weights between the hidden layer and the output layer. It is a 4x1 matrix because there are 4 nodes in the hidden layer and one output. Note that there is no bias term feeding the output layer in this example. The weights are initially generated randomly because optimization tends not to work well when all the weights start at the same value. Note that neither of the neural networks shown in the video describe the example.
 
-# In[28]:
 
 #synapses
 syn0 = 2*np.random.random((3,4)) - 1  # 3x4 matrix of weights ((2 inputs + 1 bias) x 4 nodes in the hidden layer)
@@ -54,12 +53,11 @@ syn1 = 2*np.random.random((4,1)) - 1  # 4x1 matrix of weights. (4 nodes x 1 outp
 
 # This is the main training loop. The output shows the evolution of the error between the model and desired. The error steadily decreases.
 
-# In[29]:
 
 #training step
 # Python2 Note: In the follow command, you may improve
 #   performance by replacing 'range' with 'xrange'.
-for j in range(600):
+for j in range(600): #60000
 
     # Calculate forward through the network.
     l0 = X
@@ -89,10 +87,6 @@ print(l2)
 
 # See how the final output closely approximates the true output [0, 1, 1, 0]. If you increase the number of interations in the training loop (currently 60000), the final output will be even closer.
 
-# In[30]:
 
 # commented next line that was not working
 # get_ipython().run_cell_magic(u'HTML', u'', u'#The following line is for embedding the YouTube video \n#   in this Jupyter Notebook. You may remove it without peril. \n<iframe width="560" height="315" src="https://www.youtube.com/embed/h3l4qz76JhQ" frameborder="0" allowfullscreen></iframe>')
-
-
-# In[ ]:
